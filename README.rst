@@ -6,9 +6,6 @@ NVM
 .. image:: https://img.shields.io/pypi/v/nvm.svg
         :target: https://pypi.python.org/pypi/nvm
 
-.. image:: https://img.shields.io/travis/cogsys-io/nvm.svg
-        :target: https://travis-ci.com/cogsys-io/nvm
-
 .. image:: https://readthedocs.org/projects/nvm/badge/?version=latest
         :target: https://nvm.readthedocs.io/en/latest/?version=latest
         :alt: Documentation Status

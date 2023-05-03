@@ -99,6 +99,9 @@ html_theme_options = {
     "prev_next_buttons_location": "top",
 }
 
+html_static_path = ["_static"]
+# html_style = "css/custom.css"
+
 # Theme options are theme-specific and customize the look and feel of a
 # theme further.  For a list of options available for each theme, see the
 # documentation.
