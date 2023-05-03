@@ -86,7 +86,7 @@ release: dist ## package and upload a release
 	twine upload dist/*
 
 release-to-testpypi: dist ## package and upload a release to testpypi
-	twine upload -r testpypi dist/*
+	twine upload -r test dist/*
 
 dist: clean ## builds source and wheel package
 #	python setup.py sdist
