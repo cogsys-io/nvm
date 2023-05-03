@@ -51,6 +51,7 @@ clean-test: ## remove test and coverage artifacts
 
 lint/flake8: ## check style with flake8
 	flake8 nvm tests
+
 lint/black: ## check style with black
 	black --check nvm tests
 
