@@ -13,6 +13,9 @@ __author__ = """cogsys.io"""
 __email__ = "cogsys@cogsys.io"
 
 
+from .aux_sys import chdir
+
+
 def get_module_version():
     return __version__
 
