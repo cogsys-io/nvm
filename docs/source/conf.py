@@ -38,11 +38,22 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.viewcode",
     "sphinx_copybutton",
-    "numpydoc",
+    # "numpydoc",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.mathjax",
 ]
 
 # numpydoc
-numpydoc_show_class_members = False
+numpydoc_show_class_members = True
+
+# Control napoleon
+napoleon_google_docstring = False
+napolean_include_init_with_doc = True
+napoleon_use_ivar = True
+napoleon_use_param = False
+
+# Control autodoc
+autoclass_content = "both"  # include init doc with class
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
