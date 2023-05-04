@@ -1,3 +1,10 @@
+
+logs/
+arch/
+arch*
+temp/
+temp*
+
 .travis.yml
 
 # Byte-compiled / optimized / DLL files
