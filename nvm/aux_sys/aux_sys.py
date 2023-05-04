@@ -16,8 +16,9 @@ from typing import (
 def chdir(
     locations: Dict[str, Dict[str, str]],
     log0: Optional[logging.Logger] = logging.getLogger("dummy"),
-):
-    """Change current directory according to hostname and username.
+) -> str:
+    """
+    Change current directory according to hostname and username.
 
     Target directory path is relative to user's ``${HOME}`` directory.
 
@@ -39,7 +40,7 @@ def chdir(
     >>>   jiko: cc/cfg/
     >>> '''
     >>> locations = srsly.yaml_loads(locations)
-    >>> nvm.chdir(locations)
+    >>> print(nvm.chdir(locations))
 
     """
     hostname = str(socket.gethostname())
@@ -51,3 +52,5 @@ def chdir(
         if username in locations[hostname].keys():
             os.chdir(pathlib.Path.home() / locations[hostname][username])
             log0.info(f"{os.getcwd() = }")
+
+    return pathlib.Path.cwd()
