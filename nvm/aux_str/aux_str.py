@@ -2,7 +2,11 @@
 
 
 import re
-from typing import List, Dict
+from typing import (
+    List,
+    Dict,
+    Union,
+)
 
 
 CLEAN_STR_MAPPINGS_TINY = [
@@ -76,8 +80,19 @@ CLEAN_STR_MAPPINGS_LARGE = [
 
 
 def clean_str(
-    text: str, mappings: List[Dict[str, List[str]]] = CLEAN_STR_MAPPINGS_TINY
+    text: str,
+    mappings: List[Dict[str, Union[str, List[str]]]] = CLEAN_STR_MAPPINGS_TINY,
 ) -> str:
+    #
+    # TODO: List of mappings has been changed from
+    # List[Dict[str, List[str]]] to
+    # List[Dict[str, Union[str, List[str]]]].
+    # Now, mappings consists of a list of dictionaries,
+    # each containing two keys "new" and "old".
+    # The "new" is used to reference a string that will replace
+    # each of the strings in the list referenced by "old" key.
+    # CONSIDER: reversing this change.
+    #
     """
     Clean string replacing any unwanted text with the desired.
 
@@ -88,12 +103,8 @@ def clean_str(
     ----------
     text : str
         Text to be cleaned.
-    mappings : List[Dict[str, List[str]]]
+    mappings : List[Dict[str, Union[str, List[str]]]]
         List of mappings to be used for text cleaning.
-        TODO: This has been changed to a list of dictionaries,
-        each containing two keys "new" and "old".
-        The "new" is used to reference a string that will replace
-        each of the strings in the list referenced by "old" key.
 
     Returns
     -------
@@ -119,7 +130,7 @@ def clean_str(
 
     .. role:: python(code)
         :language: python
-    
+
     The mappings argument should be a list of dictionaries with
     keys containing the desired replacement values containing
     a list of replaced items (:python:`List[Dict[str, List[str]]]`).
