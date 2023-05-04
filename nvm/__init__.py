@@ -16,6 +16,7 @@ __email__ = "cogsys@cogsys.io"
 from .aux_sys import chdir
 from .aux_str import clean_str
 from .aux_log import Log0
+from .aux_pandas import disp_df
 
 
 def get_module_version():
