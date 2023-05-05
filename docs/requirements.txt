@@ -21,3 +21,4 @@ sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.5
 tqdm>=4
 sphinx_copybutton>=0.5.2
+numpy>=1.24.3
