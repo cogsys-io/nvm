@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    nvm.aux_log
+   nvm.aux_pandas
    nvm.aux_str
    nvm.aux_sys
 
