@@ -2,16 +2,13 @@
 NVM
 ===
 
-
-.. image:: https://img.shields.io/pypi/v/nvm.svg
-        :target: https://pypi.python.org/pypi/nvm
+.. image:: https://img.shields.io/pypi/v/nvm?color=brightgreen
+           :target: https://pypi.python.org/pypi/nvm
+           :alt: PyPI Version
 
 .. image:: https://readthedocs.org/projects/nvm/badge/?version=latest
-        :target: https://nvm.readthedocs.io/en/latest/?version=latest
-        :alt: Documentation Status
-
-
-
+           :target: https://nvm.readthedocs.io/en/latest/
+           :alt: Documentation Status
 
 Plenty little helpers.
 
