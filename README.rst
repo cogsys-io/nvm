@@ -6,7 +6,7 @@ NVM
    :target: https://pypi.python.org/pypi/nvm
    :alt: PyPI Version
 
-.. image:: https://img.shields.io/pypi/l/nvm?color=blueviolet
+.. image:: https://img.shields.io/pypi/l/nvm?color=green
    :target: https://github.com/cogsys-io/nvm/blob/master/LICENSE
    :alt: License
 
