@@ -2,15 +2,11 @@
 NVM
 ===
 
-.. image:: https://img.shields.io/pypi/v/nvm
+.. image:: https://img.shields.io/pypi/v/nvm?version=latest
    :target: https://pypi.python.org/pypi/nvm
    :alt: PyPI Version
 
-.. image:: https://readthedocs.org/projects/nvm/badge/?version=latest
-   :target: https://nvm.readthedocs.io/en/latest
-   :alt: Documentation Status
-
-.. image:: https://img.shields.io/pypi/l/nvm?color=blue
+.. image:: https://img.shields.io/pypi/l/nvm?color=blueviolet
    :target: https://github.com/cogsys-io/nvm/blob/master/LICENSE
    :alt: License
 
@@ -18,19 +14,22 @@ NVM
    :alt: GitHub Workflow (Build Main) Status
    :target: https://github.com/cogsys-io/nvm
 
+.. image:: https://readthedocs.org/projects/nvm/badge/?version=latest
+   :target: https://nvm.readthedocs.io/en/latest
+   :alt: Documentation Status
 
 Plenty little helpers.
 
-
+* PyPi: https://pypi.org/project/nvm/
+* GitHub: https://github.com/cogsys-io/nvm
+* Documentation: https://nvm.readthedocs.io
+* Developers: https://cogsys.io
 * Free software: GNU General Public License v3
-* Documentation: https://nvm.readthedocs.io.
-
 
 Features
 --------
 
 * Plenty little helpers.
-* TODO
 
 Credits
 -------
