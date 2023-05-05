@@ -2,7 +2,4 @@
 History
 =======
 
-0.0.0 (2023-05-03)
-------------------
-
-* First release on PyPI.
+* See https://pypi.org/project/nvm/#history
