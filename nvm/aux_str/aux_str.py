@@ -116,6 +116,26 @@ def clean_str(
     >>> # Display one of them as JSON:
     >>> import srsly
     >>> print(srsly.json_dumps(CLEAN_STR_MAPPINGS_TINY, indent=2))
+    [
+      {
+        " ":[
+          "\\n",
+          "\\r",
+          "\\t"
+        ]
+      },
+      {
+        "-":[
+          "\\u2212",
+          "\\u2013",
+          "\\u2014",
+          "\\u2015",
+          "\\ufe63",
+          "\\uff0d"
+        ]
+      }
+    ]
+
 
     Note that we used |json_dumps|_ function from the |srsly|_ library
     to get indented JSON output.
