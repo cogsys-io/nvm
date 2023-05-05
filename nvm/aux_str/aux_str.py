@@ -145,7 +145,7 @@ def clean_str(
     return text
 
 
-def _test_awkward_mappings():
+def _temp_test_awkward_mappings():
     # mappings = [{"a": list("ABC")}, {"x": list("XYZ")}]
     mappings = [{"a": list("ABC"), "x": list("XYZ")}]
     for item in mappings:
