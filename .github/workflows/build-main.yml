@@ -1,9 +1,11 @@
 name: "NVM: Build Main"
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   build:
