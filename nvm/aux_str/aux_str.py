@@ -5,10 +5,9 @@ import re
 from typing import (
     List,
     Dict,
-    Union,
 )
 
-from .clean_str_mappings import (
+from .clean_str_mappings import (  # noqa: F401
     CLEAN_STR_MAPPINGS_TINY,
     CLEAN_STR_MAPPINGS_LARGE,
     CLEAN_STR_MAPPINGS_HUGE,
