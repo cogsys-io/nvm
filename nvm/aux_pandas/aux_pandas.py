@@ -26,7 +26,7 @@ def fix_column_names(df0, lowercase=False):
     return df0
 
 
-def context_pandas(
+def _context_pandas(
     max_columns=222,
     max_colwidth=44,
     width=2222,
@@ -56,5 +56,5 @@ def disp_df(df0, **opt):
 
     """
     with ExitStack() as stack:
-        _ = [stack.enter_context(cont) for cont in context_pandas(**opt)]
+        _ = [stack.enter_context(cont) for cont in _context_pandas(**opt)]
         display(df0)
