@@ -17,8 +17,7 @@ def chdir(
     locations: Dict[str, Dict[str, str]],
     log0: Optional[logging.Logger] = logging.getLogger("dummy"),
 ) -> str:
-    """
-    Change current directory according to hostname and username.
+    """Change current directory according to hostname and username.
 
     Target directory path is relative to user's ``${HOME}`` directory.
 
@@ -33,12 +32,12 @@ def chdir(
     --------
     >>> import srsly
     >>> import nvm
-    >>> locations = '''
+    >>> locations = \'\'\'
     >>> stardust7:
     >>>   jiko: cc/dev/
     >>> buka2:
     >>>   jiko: cc/cfg/
-    >>> '''
+    >>> \'\'\'
     >>> locations = srsly.yaml_loads(locations)
     >>> print(nvm.chdir(locations))
 
