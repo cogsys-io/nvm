@@ -28,10 +28,10 @@ jobs:
           if [ -f requirements_dev.txt ]; then pip install -r requirements_dev.txt; fi
       - name: Lint with flake8
         run: |
-          flake8 gotham4 --count --verbose --show-source --statistics
+          flake8 nvm --count --verbose --show-source --statistics
       - name: Check with black
         run: |
-          black --check gotham4
+          black --check nvm
       - name: Test with pytest
         run: |
           pytest
