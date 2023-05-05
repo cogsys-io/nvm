@@ -10,6 +10,10 @@ NVM
            :target: https://nvm.readthedocs.io/en/latest/
            :alt: Documentation Status
 
+.. image:: https://img.shields.io/pypi/l/nvm?color=blue
+           :alt: PyPI - License
+
+
 Plenty little helpers.
 
 
@@ -20,6 +24,7 @@ Plenty little helpers.
 Features
 --------
 
+* Plenty little helpers.
 * TODO
 
 Credits
