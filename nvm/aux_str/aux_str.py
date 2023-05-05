@@ -10,17 +10,15 @@ from typing import (
 
 
 CLEAN_STR_MAPPINGS_TINY = [
-    dict(
-        new=" ",  # Unicode Character 'SPACE' (U+0020)
-        old=[
-            "\n",
-            "\r",
-            "\t",
+    {
+        " ": [  # Unicode Character 'SPACE' (U+0020)
+            "\n",  # LF (Line Feed)
+            "\r",  # CR (Carriage Return)
+            "\t",  # TAB (Horizontal Tab)
         ],
-    ),
-    dict(
-        new="-",  # Unicode Character 'HYPHEN-MINUS' (U+002D) # chr(45) ord("-") ord("\u002D")
-        old=[
+    },
+    {
+        "-": [  # Unicode Character 'HYPHEN-MINUS' (U+002D) # chr(45) ord("-") ord("\u002D")
             "\u2212",  # Unicode Character 'MINUS SIGN' (U+2212)
             "\u2013",  # Unicode Character 'EN DASH' (U+2013) # chr(8211) ↔ ord("–") ↔ ord("\u2013")
             "\u2014",  # Unicode Character 'EM DASH' (U+2014)
@@ -28,16 +26,12 @@ CLEAN_STR_MAPPINGS_TINY = [
             "\uFE63",  # Unicode Character 'SMALL HYPHEN-MINUS' (U+FE63)
             "\uFF0D",  # Unicode Character 'FULLWIDTH HYPHEN-MINUS' (U+FF0D)
         ],
-    ),
+    },
 ]
 
-CLEAN_STR_MAPPINGS_LARGE = [
-    dict(
-        new=" ",  # Unicode Character 'SPACE' (U+0020)
-        old=[
-            "\n",
-            "\r",
-            "\t",
+CLEAN_STR_MAPPINGS_LARGE = CLEAN_STR_MAPPINGS_TINY + [
+    {
+        " ": [  # Unicode Character 'SPACE' (U+0020)
             "\u200B",  # Unicode Character 'ZERO WIDTH SPACE' (U+200B)
             "\uFEFF",  # Unicode Character 'ZERO WIDTH NO-BREAK SPACE' (U+FEFF)
             "\u202F",  # Unicode Character 'NARROW NO-BREAK SPACE' (U+202F)
@@ -46,55 +40,33 @@ CLEAN_STR_MAPPINGS_LARGE = [
             "\u3164",  # Unicode Character 'HANGUL FILLER' (U+3164).
             "\\&nbsp;",  # just in case a HTML leaked in
         ],
-    ),
-    dict(
-        new="-",  # Unicode Character 'HYPHEN-MINUS' (U+002D) # chr(45) ord("-") ord("\u002D")
-        old=[
-            "\u2212",  # Unicode Character 'MINUS SIGN' (U+2212)
-            "\u2013",  # Unicode Character 'EN DASH' (U+2013) # chr(8211) ↔ ord("–") ↔ ord("\u2013")
-            "\u2014",  # Unicode Character 'EM DASH' (U+2014)
-            "\u2015",  # Unicode Character 'HORIZONTAL BAR' (U+2015)
-            "\uFE63",  # Unicode Character 'SMALL HYPHEN-MINUS' (U+FE63)
-            "\uFF0D",  # Unicode Character 'FULLWIDTH HYPHEN-MINUS' (U+FF0D)
-        ],
-    ),
-    dict(
-        new="'",  # Unicode Character 'APOSTROPHE' (U+0027)
-        old=[
+    },
+    {
+        "'": [  # Unicode Character 'APOSTROPHE' (U+0027)
             "’",
             "‘",
             "‛",
             "‚",
             "′",
         ],
-    ),
-    dict(
-        new='"',
-        old=[
+    },
+    {
+        '"': [
             "“",
             "”",
             "„",
         ],
-    ),
+    },
 ]
+
+CLEAN_STR_MAPPINGS_HUGE = CLEAN_STR_MAPPINGS_LARGE + []  # TODO
 
 
 def clean_str(
     text: str,
-    mappings: List[Dict[str, Union[str, List[str]]]] = CLEAN_STR_MAPPINGS_TINY,
+    mappings: List[Dict[str, List[str]]] = CLEAN_STR_MAPPINGS_TINY,
 ) -> str:
-    #
-    # TODO: List of mappings has been changed from
-    # List[Dict[str, List[str]]] to
-    # List[Dict[str, Union[str, List[str]]]].
-    # Now, mappings consists of a list of dictionaries,
-    # each containing two keys "new" and "old".
-    # The "new" is used to reference a string that will replace
-    # each of the strings in the list referenced by "old" key.
-    # CONSIDER: reversing this change.
-    #
-    """
-    Clean string replacing any unwanted text with the desired.
+    """Clean string replacing any unwanted text with the desired.
 
     This function can be used to clean text from redundant whitespace characters
     and other common problems.
@@ -103,8 +75,12 @@ def clean_str(
     ----------
     text : str
         Text to be cleaned.
-    mappings : List[Dict[str, Union[str, List[str]]]]
+    mappings : List[Dict[str, List[str]]]
         List of mappings to be used for text cleaning.
+        This should be a list of dictionaries.
+        Dictionary keys should contain strings that are
+        used as replacement for matches of patterns provided
+        as list in dictionary key value.
 
     Returns
     -------
@@ -117,8 +93,10 @@ def clean_str(
     To clean a string use:
 
     >>> from nvm.aux_str import clean_str
-    >>> text_dirty = "  one  two\t  three  \t\t four...  "
-    >>> clean_str(text=text_dirty)
+    >>> text_dirty = "  one two  three\\t \\n\\n\\r four...  "
+    >>> text_clean = clean_str(text=text_dirty)
+    >>> # print(text_dirty)
+    >>> print(text_clean)
     "one two three four..."
 
     This function comes handy with pandas dataframes:
@@ -156,11 +134,21 @@ def clean_str(
     text = str(text)
     # substitute each undesired str with the desired one
     for item in mappings:
-        for pattern in item["old"]:
-            text = re.sub(pattern, item["new"], text)
+        for key, val in item.items():
+            for pattern in val:
+                text = re.sub(pattern, key, text)
 
     # Finally remove repeated whitespace characters
     text = re.sub(r"\s\s+", " ", text)
     # and strip whitespace at the beginning and end of the output
     text = text.strip()
     return text
+
+
+def _test_awkward_mappings():
+    # mappings = [{"a": list("ABC")}, {"x": list("XYZ")}]
+    mappings = [{"a": list("ABC"), "x": list("XYZ")}]
+    for item in mappings:
+        for key, val in item.items():
+            for pattern in val:
+                print(pattern, key)
