@@ -1,4 +1,4 @@
-name: NVM: Build Main
+name: "NVM: Build Main"
 
 on:
   push:
