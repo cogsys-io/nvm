@@ -6,7 +6,7 @@ CLEAN_STR_MAPPINGS_TINY = [
         " ": [  # Unicode Character 'SPACE' (U+0020)
             "\n",  # LF (Line Feed)
             "\r",  # CR (Carriage Return)
-            "\t",  # TAB (Horizontal Tab)
+            "\t",  # HT (Horizontal Tab)
         ],
     },
     {
