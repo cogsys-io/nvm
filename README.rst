@@ -2,7 +2,7 @@
 NVM
 ===
 
-.. image:: https://img.shields.io/pypi/v/nvm?color=brightgreen
+.. image:: https://img.shields.io/pypi/v/nvm
            :target: https://pypi.python.org/pypi/nvm
            :alt: PyPI Version
 
