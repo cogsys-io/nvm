@@ -80,20 +80,16 @@ docs: ## generate Sphinx HTML documentation, including API docs
 servedocs: docs ## compile the docs watching for changes
 	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
-check: dist ## check package (twine)
-	twine check dist/*
-
-release: dist ## package and upload a release
-	twine upload dist/*
-
-release-to-testpypi: dist ## package and upload a release to testpypi
-	twine upload -r test dist/*
-
 dist: clean ## builds source and wheel package
 #	python setup.py sdist
 #	python setup.py bdist_wheel
 	python -m build
 	ls -l dist
+
+build: dist ## builds source and wheel package (same as dist)
+
+check: dist ## check package dist/built (twine)
+	twine check dist/*
 
 install: clean ## install the package to the active Python's site-packages
 #	python setup.py install
@@ -101,6 +97,9 @@ install: clean ## install the package to the active Python's site-packages
 
 install-editable: clean ## install the package in editable mode
 	pip install --editable .
+
+release: dist ## package and upload a release
+	twine upload dist/*
 
 version: ## display git versioning tags and the actual current version from versioneer
 	@git tag | grep "nvm-v" | sed -e "s|nvm-v||g"
