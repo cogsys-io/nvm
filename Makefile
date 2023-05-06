@@ -98,6 +98,8 @@ install: clean ## install the package to the active Python's site-packages
 install-editable: clean ## install the package in editable mode
 	pip install --editable .
 
+prep: clean lint test docs dist check install-editable
+
 release: dist ## package and upload a release
 	twine upload dist/*
 
