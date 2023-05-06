@@ -79,7 +79,7 @@ setup(
     description="Plenty little helpers.",
     entry_points={
         "console_scripts": [
-            "nvm=bin.nvm:main",
+            "nvm=nvm.cli.nvm:main",
         ],
     },
     install_requires=requirements,

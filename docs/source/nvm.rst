@@ -11,6 +11,7 @@ Subpackages
    nvm.aux_pandas
    nvm.aux_str
    nvm.aux_sys
+   nvm.cli
 
 Submodules
 ----------

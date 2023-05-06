@@ -11,7 +11,7 @@ def main():
     args = parser.parse_args()
 
     print("Arguments: " + str(args._))
-    print("🚀🚀🚀 Replace this message by putting your code into bin.nvm:main")
+    print("🚀🚀🚀 Replace this message by putting your code into nvm.bin.nvm:main")
     return 0
 
 
