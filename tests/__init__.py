@@ -1,1 +1,1 @@
-"""Unit test package for nvm."""
+"""Test package for nvm."""
