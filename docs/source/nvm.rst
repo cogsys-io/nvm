@@ -12,6 +12,7 @@ Subpackages
    nvm.aux_str
    nvm.aux_sys
    nvm.cli
+   nvm.tests
 
 Submodules
 ----------
