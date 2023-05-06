@@ -50,10 +50,10 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint-flake8: ## check style with flake8
-	flake8 nvm tests --exit-zero --count --statistics
+	flake8 nvm nvm/tests --exit-zero --count --statistics
 
 lint-black: ## check style with black
-	black --check nvm tests || true
+	black --check nvm nvm/tests || true
 
 lint: lint-flake8 lint-black ## check style
 
