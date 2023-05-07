@@ -6,3 +6,6 @@ from .clean_str_mappings import (
     CLEAN_STR_MAPPINGS_LARGE,
     CLEAN_STR_MAPPINGS_HUGE,
 )
+from .regex import (
+    REGEX_ABC_DASH_XYZ_ASTERISK,
+)

@@ -6,6 +6,7 @@ from nvm import nvm  # noqa: F401
 
 from nvm.aux_str import clean_str
 from nvm.aux_str import CLEAN_STR_MAPPINGS_TINY
+from nvm.aux_str import REGEX_ABC_DASH_XYZ_ASTERISK as re0
 
 
 class TestAuxStr:
@@ -43,3 +44,15 @@ class TestAuxStr:
         text_dirty = "ABCEFG"
         text_clean = clean_str(text=text_dirty, mappings=mappings)
         assert text_clean == "aaaeee"
+
+    def test_REGEX_ABC_DASH_XYZ_ASTERISK(self):
+        assert bool(re0.match("i"))
+        assert bool(re0.match("abc"))
+        assert bool(re0.match("abc*"))
+        assert bool(re0.match("abc-xyz"))
+        assert bool(re0.match("abc-xyz*"))
+        assert not bool(re0.match("-abc"))
+        assert not bool(re0.match("*abc"))
+        assert not bool(re0.match("xyz-"))
+        assert not bool(re0.match("abc--xyz"))
+        assert not bool(re0.match("abc*xyz"))

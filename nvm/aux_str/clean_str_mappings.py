@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 CLEAN_STR_MAPPINGS_TINY = [
     {
         " ": [  # Unicode Character 'SPACE' (U+0020)
