@@ -58,3 +58,20 @@ def disp_df(df0, **opt):
     with ExitStack() as stack:
         _ = [stack.enter_context(cont) for cont in _context_pandas(**opt)]
         display(df0)
+
+
+def repr_df(df0, **opt):
+    """Get DF repr using custom formatting context.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> import pandas as pd
+    >>> from nvm import disp_df
+    >>> from nvm.aux_pandas import wine_df
+    >>> print(repr_df(df0))
+
+    """
+    with ExitStack() as stack:
+        _ = [stack.enter_context(cont) for cont in _context_pandas(**opt)]
+        return str(df0)

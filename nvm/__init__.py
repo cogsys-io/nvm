@@ -17,7 +17,9 @@ from .aux_log import Log0
 from .aux_sys import chdir
 from .aux_str import clean_str
 from .aux_pandas import disp_df
+from .aux_pandas import repr_df
 from .aux_pandas import disp_df as ddf
+from .aux_pandas import repr_df as rdf
 
 
 def get_module_version():
