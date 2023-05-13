@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
 
 import os
+import sys
 import pwd
 import socket
 import pathlib
 import logging
+import contextlib
 
 
 from typing import (
     Dict,
+    Union,
     Optional,
 )
 
 
 def chdir(
-    locations: Dict[str, Dict[str, str]],
+    locations: Dict[str, Dict[str, Union[str, pathlib.Path]]],
     log0: Optional[logging.Logger] = logging.getLogger("dummy"),
 ) -> str:
     """Change current directory according to hostname and username.
@@ -23,7 +26,7 @@ def chdir(
 
     Parameters
     ----------
-    locations : Dict[str, Dict[str, str]]
+    locations : Dict[str, Dict[str, Union[str, pathlib.Path]]]
         Dictionary containing locations, usernames and paths.
     log0 : Optional[logging.Logger]
         Logger.
@@ -53,3 +56,33 @@ def chdir(
             log0.info(f"{os.getcwd() = }")
 
     return pathlib.Path.cwd()
+
+
+@contextlib.contextmanager
+def pushdir(new_dir: Union[str, pathlib.Path]) -> None:
+    """Change dir context (WARNING: non thread-safe).
+
+    Parameters
+    ----------
+    new_dir : Union[str, pathlib.Path]
+        New (temporary path) paths.
+
+    Examples
+    --------
+    >>> import os
+    >>> from nvm import pushdir
+    >>> print(os.getcwd())
+    >>> with pushdir('/home/'):
+    >>>     print(os.getcwd())
+    >>>
+    >>> print(os.getcwd())
+
+    """
+    old_dir = os.getcwd()
+    try:
+        os.chdir(new_dir)
+        sys.path.insert(0, new_dir)
+        yield
+    finally:
+        del sys.path[0]
+        os.chdir(old_dir)
