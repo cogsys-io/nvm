@@ -8,6 +8,9 @@ from nvm.aux_str import clean_str
 from nvm.aux_str import CLEAN_STR_MAPPINGS_TINY
 from nvm.aux_str import REGEX_ABC_DASH_XYZ_ASTERISK as re0
 
+from nvm.aux_str import is_ascii
+from nvm.aux_str import is_ascii_alt
+
 
 class TestAuxStr:
     def test_clean_str_one(self):
@@ -56,3 +59,13 @@ class TestAuxStr:
         assert not bool(re0.match("xyz-"))
         assert not bool(re0.match("abc--xyz"))
         assert not bool(re0.match("abc*xyz"))
+
+    def test_is_ascii(self):
+        assert is_ascii("abc 123")
+        assert not is_ascii("abc 123 ×")
+        assert not is_ascii("abc 123 ")
+
+    def test_is_ascii_alt(self):
+        assert is_ascii_alt("abc 123")
+        assert not is_ascii_alt("abc 123 ×")
+        assert not is_ascii_alt("abc 123 ")
