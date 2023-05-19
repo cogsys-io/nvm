@@ -13,11 +13,18 @@ __author__ = """cogsys.io"""
 __email__ = "cogsys@cogsys.io"
 
 
+from . import aux_log
 from .aux_log import Log0
+
+from . import aux_sys
 from .aux_sys import chdir
 from .aux_sys import pushdir
 from .aux_sys import pushdir as pdir
+
+from . import aux_str
 from .aux_str import clean_str
+
+from . import aux_pandas
 from .aux_pandas import disp_df
 from .aux_pandas import repr_df
 from .aux_pandas import disp_df as ddf
