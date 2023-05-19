@@ -10,9 +10,11 @@ from typing import (
 )
 
 from .clean_str_mappings import (  # noqa: F401
+    CLEAN_STR_MAPPINGS_DROP_HASHTAGS,
     CLEAN_STR_MAPPINGS_TINY,
     CLEAN_STR_MAPPINGS_LARGE,
     CLEAN_STR_MAPPINGS_HUGE,
+    CLEAN_STR_MAPPINGS_SPACE,
 )
 
 
@@ -149,6 +151,17 @@ def clean_str(
 
     Note that we used |json_dumps|_ function from the |srsly|_ library
     to get indented JSON output.
+
+    Drop hashtags
+
+    >>> from nvm.aux_str import CLEAN_STR_MAPPINGS_DROP_HASHTAGS as map0
+    >>> from nvm.aux_str import clean_str
+    >>> text_dirty = "  #one\\ntwo\\n\\tthree #3443 #three434 #44ok \\t #four... five #hashTag comose text"
+    >>> text_clean = clean_str(text=text_dirty, mappings=map0)
+    >>> # print(text_dirty)
+    >>> print(text_clean)
+    "two three #3443 ... five comose text"
+
 
     .. |srsly| replace:: ``srsly``
     .. _srsly: https://github.com/explosion/srsly

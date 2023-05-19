@@ -1,5 +1,22 @@
 #!/usr/bin/env python3
 
+CLEAN_STR_MAPPINGS_SPACE = [
+    {
+        " ": [  # Unicode Character 'SPACE' (U+0020)
+            "-",
+            "_",
+        ],
+    },
+]
+
+CLEAN_STR_MAPPINGS_DROP_HASHTAGS = [
+    {
+        " ": [  # Unicode Character 'SPACE' (U+0020)
+            r"\B#\w*[a-zA-Z]+\w*",
+        ],
+    },
+]
+
 CLEAN_STR_MAPPINGS_TINY = [
     {
         " ": [  # Unicode Character 'SPACE' (U+0020)
