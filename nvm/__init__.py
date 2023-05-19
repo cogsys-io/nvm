@@ -30,6 +30,10 @@ from .aux_pandas import repr_df
 from .aux_pandas import disp_df as ddf
 from .aux_pandas import repr_df as rdf
 
+from . import aux_srsly
+from .aux_srsly import json_serializable_or_repr
+from .aux_srsly import json_serializable_or_repr as jsonable
+
 
 def get_module_version():
     return __version__
