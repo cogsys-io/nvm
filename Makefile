@@ -49,6 +49,11 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
 
+clean-docs: ## clean docs
+	rm -fv docs/source/nvm.rst
+	rm -fv docs/source/nvm*.rst
+	rm -fv docs/source/modules.rst
+
 lint-flake8: ## check style with flake8
 	flake8 nvm nvm/tests --exit-zero --count --statistics
 
@@ -69,9 +74,7 @@ coverage: ## check code coverage quickly with the default Python
 	coverage html
 	$(BROWSER) htmlcov/index.html
 
-docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/source/nvm.rst
-	rm -f docs/source/modules.rst
+docs: clean-docs  ## generate Sphinx HTML documentation, including API docs
 	sphinx-apidoc -o docs/source/ nvm
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
