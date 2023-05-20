@@ -18,13 +18,61 @@ from .clean_str_mappings import (  # noqa: F401
 )
 
 
-def is_ascii(s):
-    """Check if the characters in string s are in ASCII."""
+def is_ascii(s: str) -> bool:
+    """Check if the characters in string s are in ASCII.
+
+    Parameters
+    ----------
+
+    s : str
+
+        String to be checked if it contains only ASCII characters.
+
+    Returns
+    -------
+
+    bool
+
+        ``True`` if ``s`` contains only ASCII characters.
+
+    Examples
+    --------
+
+    >>> from nvm.aux_str import is_ascii
+    >>> assert is_ascii("abc 123")
+    >>> assert not is_ascii("abc 123 ×")
+    >>> assert not is_ascii("abc 123 ")
+
+    """
     return all(ord(c) < 128 for c in s)
 
 
-def is_ascii_alt(s):
-    """Check if the characters in string s are in ASCII, U+0-U+7F."""
+def is_ascii_alt(s: str) -> bool:
+    """Check if the characters in string s are in ASCII, U+0-U+7F.
+
+    Parameters
+    ----------
+
+    s : str
+
+        String to be checked if it contains only ASCII characters.
+
+    Returns
+    -------
+
+    bool
+
+        ``True`` if ``s`` contains only ASCII characters.
+
+    Examples
+    --------
+
+    >>> from nvm.aux_str import is_ascii_alt
+    >>> assert is_ascii_alt("abc 123")
+    >>> assert not is_ascii_alt("abc 123 ×")
+    >>> assert not is_ascii_alt("abc 123 ")
+
+    """
     return len(s) == len(s.encode())
 
 
