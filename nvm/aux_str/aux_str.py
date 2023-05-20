@@ -52,17 +52,15 @@ def is_ascii_alt(s: str) -> bool:
 
     Parameters
     ----------
-
     s : str
-
         String to be checked if it contains only ASCII characters.
+
 
     Returns
     -------
-
     bool
-
         ``True`` if ``s`` contains only ASCII characters.
+
 
     Examples
     --------
