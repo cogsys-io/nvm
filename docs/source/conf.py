@@ -38,26 +38,38 @@ on_rtd = os.environ.get("READTHEDOCS", None) == "True"
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named "sphinx.ext.*") or your custom ones.
 extensions = [
+    "sphinx.ext.intersphinx",
     "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
     "sphinx_copybutton",
-    # "numpydoc",
     "sphinx.ext.napoleon",
-    "sphinx.ext.mathjax",
+    "sphinx_autodoc_typehints",
+    "sphinx.ext.autosectionlabel",
+    # "sphinx_autodoc_napoleon_typehints",
+    # "numpydoc",
     # "sphinxcontrib.fulltoc",
 ]
 
 # numpydoc
 numpydoc_show_class_members = True
 
-# Control napoleon
+# Config napoleon
 napoleon_google_docstring = False
+napoleon_numpy_docstring = True
 napolean_include_init_with_doc = True
 napoleon_use_ivar = True
 napoleon_use_param = False
+napoleon_custom_sections = ["Bonus"]
 
-# Control autodoc
+# Config autodoc
 autoclass_content = "both"  # include init doc with class
+
+# Config autosectionlabel
+autosectionlabel_prefix_document = True
+autosectionlabel_maxdepth = 8
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
