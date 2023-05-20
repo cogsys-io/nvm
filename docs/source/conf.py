@@ -28,6 +28,9 @@ import nvm
 
 # -- General configuration ---------------------------------------------
 
+# on_rtd is whether we are on readthedocs.org
+on_rtd = os.environ.get("READTHEDOCS", None) == "True"
+
 # If your documentation needs a minimal Sphinx version, state it here.
 #
 # needs_sphinx = "1.0"
