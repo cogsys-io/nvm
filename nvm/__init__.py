@@ -34,6 +34,8 @@ from . import aux_srsly
 from .aux_srsly import json_serializable_or_repr
 from .aux_srsly import json_serializable_or_repr as jsonable
 
+from . import aux_spacy
+
 
 def get_module_version():
     return __version__
