@@ -60,12 +60,17 @@ def chdir(
 
 @contextlib.contextmanager
 def pushdir(new_dir: Union[str, pathlib.Path]) -> None:
-    """Change dir context (WARNING: non thread-safe).
+    """Change dir context (non thread-safe).
 
     Parameters
     ----------
     new_dir : Union[str, pathlib.Path]
         New (temporary path) paths.
+
+
+    .. warning::
+         This function is not thread-safe.
+
 
     Examples
     --------

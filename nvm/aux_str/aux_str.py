@@ -23,16 +23,12 @@ def is_ascii(s: str) -> bool:
 
     Parameters
     ----------
-
     s : str
-
         String to be checked if it contains only ASCII characters.
 
     Returns
     -------
-
     bool
-
         ``True`` if ``s`` contains only ASCII characters.
 
     Examples
@@ -85,28 +81,22 @@ def clean_str(
 
     Parameters
     ----------
-
     text : str
-
         Text to be cleaned.
 
-    mappings : List[Dict[str, List[Union[str, Pattern[str]]]]]
-
+    mappings : List[Dict[str, List[Union[str, Pattern[str]]]]], default=[{' ': ['\\n', '\\r', '\\t']}, {'-': ['−', '–', '—', '―', '﹣', '－']}]
         List of mappings to be used for text cleaning. This should be a list of
         dictionaries. Dictionary keys should contain strings that are used as
         replacement for matches of string patterns or regexes provided as list
-        in dictionary key value.
+        in dictionary key value. The default value is sourced from ``nvm.aux_str.clean_str_mappings.CLEAN_STR_MAPPINGS_TINY``.
 
     Returns
     -------
-
     str
-
         Clean text.
 
     Examples
     --------
-
     To clean a string use:
 
     >>> from nvm.aux_str import clean_str
@@ -125,6 +115,7 @@ def clean_str(
 
     .. role:: python(code)
         :language: python
+
 
     The ``mappings`` argument should be a list of dictionaries that define
     string pattern- or regex-based replacements used for text cleaning.
@@ -160,10 +151,13 @@ def clean_str(
     >>>     },
     >>> ]
 
-    Hint: an empty string can be used to remove text matching a regex, for
-    example:
 
-    >>> mappings = [{"": [re.compile(r"[0-9]")]}]  # remove digits
+    .. note::
+        **Hint:** an empty string can be used to remove text matching a regex, for
+        example:
+
+        >>> mappings = [{"": [re.compile(r"[0-9]")]}]  # remove digits
+
 
     :python:`nvm.aux_str` also provides few usefull mappings:
 

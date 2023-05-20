@@ -27,10 +27,13 @@ def get_doc_summary_dict_component(
 ):
     """Get underscore attributes as dictionary.
 
-    **CAUTION:** Add this to ``nlp.pipe`` **after** elements that need to be in the summary dictionary.
 
-    Example use:
-    ------------
+    .. important::
+        **CAUTION:** Add this to ``nlp.pipe`` **after** elements that need to be in the summary dictionary.
+
+
+    Examples
+    --------
     >>> import textwrap
     >>> import srsly
     >>> import spacy

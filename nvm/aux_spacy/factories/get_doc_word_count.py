@@ -20,8 +20,8 @@ def get_doc_word_count_component(
 ):
     """Get Doc word count.
 
-    Example use:
-    ------------
+    Examples
+    --------
     >>> import spacy
     >>> from nvm.aux_spacy import get_doc_word_count_component
     >>> nlp = spacy.load("en_core_web_sm")

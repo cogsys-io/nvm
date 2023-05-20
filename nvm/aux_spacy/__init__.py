@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+"""This module provides auxiliary stuff for spaCy.
+
+"""
+
 
 from .set_container_extensions import set_container_extensions_from_dict
 

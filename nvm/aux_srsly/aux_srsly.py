@@ -11,20 +11,15 @@ def json_serializable_or_repr(obj: Dict, content=True) -> Dict:
 
     Parameters
     ----------
-
     obj : Dict
-
         Dictionary to be parsed.
-
     content : bool
         Replace unserializable data with its string representation.
         If ``False`` use type description instead.
 
     Returns
     -------
-
     Dict
-
         Parsed dictionary.
 
     Examples

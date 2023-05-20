@@ -52,8 +52,8 @@ def get_doc_count_of_dict_items_component(
 class CountDictItemsComponent:
     """Get counts of items from arbitrary LIWC-like dictionary.
 
-    Example use:
-    ------------
+    Examples
+    --------
     >>> from nvm import disp_df
     >>> from nvm import Log0
     >>> logZ = Log0()

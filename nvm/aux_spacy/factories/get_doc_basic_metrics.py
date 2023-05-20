@@ -21,8 +21,8 @@ def get_doc_basic_metrics_component(
 ):
     """Get Doc basic metrics.
 
-    Example use:
-    ------------
+    Examples
+    --------
     >>> import spacy
     >>> from dframcy import DframCy
     >>>
@@ -53,11 +53,21 @@ def get_doc_basic_metrics_component(
 
 
 class DocBasicMetricsComponent:
+    """DocBasicMetricsComponent.
+
+    Methods
+    -------
+    __call__:
+        some description
+
+    """
+
     def __init__(
         self,
         nlp: Language,
         log0: logging.Logger = logging.getLogger("dummy"),
     ):
+        """DocBasicMetricsComponent."""
         # Placeholder dictionaries for new functions
         self.tok_fn_dict = dict()
         self.doc_fn_dict = dict()
@@ -183,4 +193,5 @@ class DocBasicMetricsComponent:
         set_container_extensions_from_dict(Doc, self.doc_fn_dict, log0=log0)
 
     def __call__(self, doc: Doc) -> Doc:
+        """DocBasicMetricsComponent."""
         return doc

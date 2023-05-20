@@ -29,9 +29,8 @@ def set_container_extensions_from_dict(
         Logger (optional)
 
 
-    Example use:
-    ------------
-
+    Examples
+    --------
     For ``Token``
 
     >>> import spacy

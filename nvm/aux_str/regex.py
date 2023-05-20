@@ -2,12 +2,12 @@
 
 """This module contains some useful regular expressions.
 
-    Examples
-    --------
+Examples
+--------
 
-    >>> from nvm.aux_str.regex import REGEX_ABC_DASH_XYZ_ASTERISK as re0
-    >>> re0.pattern
-    '^[a-z]+(\\-[a-z]+)*\\*?$'
+>>> from nvm.aux_str.regex import REGEX_ABC_DASH_XYZ_ASTERISK as re0
+>>> re0.pattern
+'^[a-z]+(\\-[a-z]+)*\\*?$'
 
 """
 

@@ -21,8 +21,8 @@ def get_doc_sentences_as_list_component(
     """Get document sentences as a list.
 
 
-    Example use:
-    ------------
+    Examples
+    --------
     >>> import spacy
     >>> from nvm.aux_spacy import get_doc_sentences_as_list_component
     >>> # nlp = spacy.blank("en")
