@@ -1,5 +1,54 @@
 #!/usr/bin/env python3
 
+"""This module contains some useful mappings for the
+   ``nvm.aux_str.clean_str`` function.
+
+    Examples
+    --------
+
+    >>> # Import example mappings:
+    >>> from nvm.aux_str import CLEAN_STR_MAPPINGS_TINY
+    >>> from nvm.aux_str import CLEAN_STR_MAPPINGS_LARGE
+    >>> from nvm.aux_str import CLEAN_STR_MAPPINGS_HUGE
+    >>> from nvm.aux_str import CLEAN_STR_MAPPINGS_SPACE
+    >>> from nvm.aux_str import CLEAN_STR_MAPPINGS_DROP_HASHTAGS
+    >>> # Display sample mappings as JSON:
+    >>> import srsly
+    >>> print(srsly.json_dumps(CLEAN_STR_MAPPINGS_TINY, indent=2))
+    [
+      {
+        " ":[
+          "\\n",
+          "\\r",
+          "\\t"
+        ]
+      },
+      {
+        "-":[
+          "\\u2212",
+          "\\u2013",
+          "\\u2014",
+          "\\u2015",
+          "\\ufe63",
+          "\\uff0d"
+        ]
+      }
+    ]
+    >>> # Use mappings to clean string:
+    >>> from nvm.aux_str import clean_str
+    >>> text_dirty = "  one two  three\\t \\n\\n\\r four...  "
+    >>> text_clean = clean_str(
+    >>>     text=text_dirty,
+    >>>     mappings=CLEAN_STR_MAPPINGS_TINY,
+    >>> )
+    >>> # print(text_dirty)
+    >>> print(text_clean)
+    "one two three four..."
+
+
+
+"""
+
 CLEAN_STR_MAPPINGS_SPACE = [
     {
         " ": [  # Unicode Character 'SPACE' (U+0020)
