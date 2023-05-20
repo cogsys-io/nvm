@@ -114,8 +114,12 @@ todo_include_todos = False
 html_theme = "sphinx_rtd_theme"
 
 html_theme_options = {
-    "collapse_navigation": False,
     "prev_next_buttons_location": "top",
+    "collapse_navigation": False,
+    "sticky_navigation": True,
+    "navigation_depth": 5,
+    "includehidden": True,
+    "titles_only": False,
 }
 
 html_static_path = ["_static"]

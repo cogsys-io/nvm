@@ -22,7 +22,7 @@ Plenty little helpers.
 
 * PyPi: https://pypi.org/project/nvm/
 * GitHub: https://github.com/cogsys-io/nvm
-* Documentation: https://nvm.readthedocs.io
+* Documentation: https://nvm.readthedocs.io (https://nvm.rtfd.io)
 * Developers: https://cogsys.io
 * Free software: GNU General Public License v3
 

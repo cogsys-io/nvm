@@ -2,13 +2,13 @@
 ==================================
 
 .. toctree::
-   :maxdepth: 8
+   :maxdepth: 5
    :caption: Contents:
 
    readme
    installation
-   usage
    Package modules <modules>
+   usage
    contributing
    authors
    history
