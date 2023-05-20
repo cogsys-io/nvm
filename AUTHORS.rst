@@ -2,12 +2,12 @@
 Credits
 =======
 
-Development Lead
-----------------
+Core Developers
+---------------
 
 * cogsys.io <cogsys@cogsys.io>
 
 Contributors
 ------------
 
-None yet. Why not be the first?
+* None yet. Why not be the first?
