@@ -5,7 +5,7 @@ Credits
 Core Developers
 ---------------
 
-* cogsys.io <cogsys@cogsys.io>
+* cogsys.io <nvm@cogsys.io>
 
 Contributors
 ------------

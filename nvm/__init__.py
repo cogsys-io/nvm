@@ -10,7 +10,7 @@ __version_dict__ = _version.get_versions()
 # fmt: on
 
 __author__ = """cogsys.io"""
-__email__ = "cogsys@cogsys.io"
+__email__ = "nvm@cogsys.io"
 
 
 from . import aux_log

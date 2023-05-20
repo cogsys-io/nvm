@@ -63,7 +63,7 @@ extra_requirements = {
 
 setup(
     author="cogsys.io",
-    author_email="cogsys@cogsys.io",
+    author_email="nvm@cogsys.io",
     python_requires=">=3.8",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
