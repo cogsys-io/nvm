@@ -14,6 +14,10 @@ from nvm.aux_spacy import (  # noqa: F401
 )
 
 
+if "en_core_web_sm" not in spacy.info()["pipelines"].keys():
+    spacy.cli.download("en_core_web_sm")
+
+
 class TestAuxSpacy:
     def test_update_object_extensions_from_dict_for_tok(self):
         tok_fn_dict = dict(
