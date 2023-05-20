@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - MASTER
+      - master
     tags:
       - "nvm-v[0-9]+.[0-9]+.[0-9]+"
   pull_request:
