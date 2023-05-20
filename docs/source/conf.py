@@ -41,6 +41,7 @@ extensions = [
     # "numpydoc",
     "sphinx.ext.napoleon",
     "sphinx.ext.mathjax",
+    # "sphinxcontrib.fulltoc",
 ]
 
 # numpydoc

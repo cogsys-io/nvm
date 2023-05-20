@@ -9,6 +9,8 @@ Subpackages
 
    nvm.aux_log
    nvm.aux_pandas
+   nvm.aux_spacy
+   nvm.aux_srsly
    nvm.aux_str
    nvm.aux_sys
    nvm.cli
