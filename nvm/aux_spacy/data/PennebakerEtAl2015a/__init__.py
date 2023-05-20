@@ -21,7 +21,7 @@ from importlib import resources
 
 try:
     with resources.path(
-        "nvm.aux_spacy.data.PennebakerEtAl2015a", "liwc2015a_TEST.json"
+        "nvm.aux_spacy.data.PennebakerEtAl2015a", "liwc2015a.json"
     ) as if0:
         liwc_dict = srsly.read_json(if0)
 except FileNotFoundError as e:
