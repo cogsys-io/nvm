@@ -171,7 +171,9 @@ def clean_str(
     >>> from nvm.aux_str import CLEAN_STR_MAPPINGS_TINY
     >>> from nvm.aux_str import CLEAN_STR_MAPPINGS_LARGE
     >>> from nvm.aux_str import CLEAN_STR_MAPPINGS_HUGE
-    >>> # Display one of them as JSON:
+    >>> from nvm.aux_str import CLEAN_STR_MAPPINGS_SPACE
+    >>> from nvm.aux_str import CLEAN_STR_MAPPINGS_DROP_HASHTAGS
+    >>> # Display sample mapping as JSON:
     >>> import srsly
     >>> print(srsly.json_dumps(CLEAN_STR_MAPPINGS_TINY, indent=2))
     [
