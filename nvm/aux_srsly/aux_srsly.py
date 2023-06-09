@@ -30,12 +30,15 @@ def yamlstr(
         Mapping (e.g., dictionary or dict-like object) to be parsed.
     prefix : str
         Prefix string (defaults to ``"got:\\n"``).
+    indent : int
+        Extra (additional) indentation (defaults to ``5``).
 
 
     Returns
     -------
     str
-        Parsed object string representation.
+        string representation of the parsed mapping object.
+
 
     Examples
     --------

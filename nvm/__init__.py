@@ -33,6 +33,7 @@ from .aux_pandas import repr_df as rdf
 from . import aux_srsly
 from .aux_srsly import json_serializable_or_repr
 from .aux_srsly import json_serializable_or_repr as jsonable
+from .aux_srsly import yamlstr
 
 from . import aux_spacy
 from . import aux_bids
