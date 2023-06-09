@@ -7,6 +7,7 @@ import textwrap
 from typing import (
     Dict,
     Mapping,
+    Optional,
 )
 
 
@@ -14,6 +15,7 @@ def yamlstr(
     obj: Mapping,
     prefix: str = "got:\n",
     indent: int = 5,
+    kwargs: Optional[Mapping] = None,
 ):
     """Get indented yaml string from mapping.
 
@@ -30,6 +32,10 @@ def yamlstr(
         Prefix string (defaults to ``"got:\\n"``).
     indent : int
         Extra (additional) indentation (defaults to ``5``).
+    kwargs : Mapping
+        Extra arguments for ``srsly.yaml_dumps``.
+        For example: ``indent_mapping``, ``indent_sequence``,
+        ``indent_offset`` and ``sort_keys``.
 
 
     Returns
@@ -51,8 +57,14 @@ def yamlstr(
            e: 5
 
     """
+    if kwargs is None:
+        kwargs = dict()
+
     return prefix + textwrap.indent(
-        srsly.yaml_dumps(json_serializable_or_repr(dict(obj))),
+        srsly.yaml_dumps(
+            json_serializable_or_repr(dict(obj)),
+            **kwargs,
+        ),
         indent * " ",
     )
 
