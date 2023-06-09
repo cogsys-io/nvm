@@ -9,8 +9,6 @@ from typing import (
     Mapping,
 )
 
-# jsonable = json_serializable_or_repr
-
 
 def yamlstr(
     obj: Mapping,
