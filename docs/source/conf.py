@@ -45,7 +45,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx_copybutton",
     "sphinx.ext.napoleon",
-    "sphinx_autodoc_typehints",
+    "sphinx_autodoc_typehints",  # NOTE: check escape chars "\\" if getting "Unexpected section title [...]"
     "sphinx.ext.autosectionlabel",
     # "sphinx_autodoc_napoleon_typehints",
     # "numpydoc",
@@ -65,6 +65,7 @@ napoleon_custom_sections = ["Bonus"]
 
 # Config autodoc
 autoclass_content = "both"  # include init doc with class
+autodoc_member_order = "bysource"
 
 # Config autosectionlabel
 autosectionlabel_prefix_document = True
