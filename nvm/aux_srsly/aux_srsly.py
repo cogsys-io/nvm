@@ -12,7 +12,44 @@ from typing import (
 # jsonable = json_serializable_or_repr
 
 
-def yamlstr(obj: Mapping, prefix="got:\n", indent=5):
+def yamlstr(
+    obj: Mapping,
+    prefix: str = "got:\n",
+    indent: int = 5,
+):
+    """Get indented yaml string from mapping.
+
+    This function comes handy for logging (or just printing)
+    more complex mappings (e.g., dictionaries or dict-like
+    objects/structures).
+
+
+    Parameters
+    ----------
+    obj : Mapping
+        Mapping (e.g., dictionary or dict-like object) to be parsed.
+    prefix : str
+        Prefix string (defaults to ``"got:\\n"``).
+
+
+    Returns
+    -------
+    str
+        Parsed object string representation.
+
+    Examples
+    --------
+    >>> from nvm.aux_srsly import yamlstr
+    >>> dict0 = dict(a=1, b=2, c=dict(d=4, e=5))
+    >>> print(yamlstr(dict0))
+    got:
+         a: 1
+         b: 2
+         c:
+           d: 4
+           e: 5
+
+    """
     return prefix + textwrap.indent(
         srsly.yaml_dumps(json_serializable_or_repr(dict(obj))),
         indent * " ",
