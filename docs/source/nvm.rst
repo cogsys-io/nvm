@@ -7,6 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   nvm.aux_bids
    nvm.aux_log
    nvm.aux_pandas
    nvm.aux_spacy

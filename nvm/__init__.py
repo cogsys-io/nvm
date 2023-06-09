@@ -35,6 +35,7 @@ from .aux_srsly import json_serializable_or_repr
 from .aux_srsly import json_serializable_or_repr as jsonable
 
 from . import aux_spacy
+from . import aux_bids
 
 
 def get_module_version():
