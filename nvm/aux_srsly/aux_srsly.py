@@ -1,18 +1,31 @@
 #!/usr/bin/env python3
 
 import json
+import srsly
+import textwrap
+
 from typing import (
     Dict,
+    Mapping,
 )
 
+# jsonable = json_serializable_or_repr
 
-def json_serializable_or_repr(obj: Dict, content=True) -> Dict:
+
+def yamlstr(obj: Mapping, prefix="got:\n", indent=5):
+    return prefix + textwrap.indent(
+        srsly.yaml_dumps(json_serializable_or_repr(dict(obj))),
+        indent * " ",
+    )
+
+
+def json_serializable_or_repr(obj: Mapping, content=True) -> Dict:
     """Return dictionary without JSON non-serializable items.
 
     Parameters
     ----------
-    obj : Dict
-        Dictionary to be parsed.
+    obj : Mapping
+        Mapping (e.g., dictionary or dict-like object) to be parsed.
     content : bool
         Replace unserializable data with its string representation.
         If ``False`` use type description instead.
