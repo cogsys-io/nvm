@@ -9,6 +9,22 @@ from typing import (
 )
 
 
+fn0_samp = (
+    "../../data/"
+    "data-001/sub-sykamw18_ses-evening_"
+    "run-r0_date-20220725T202601."
+    "uuid-670f238a-1c15-4f7c-be1a-ea057756ac04.csv"
+)  # WTF
+
+
+fn0 = (
+    "../../data/"
+    "data-001/sub-s001__ses-morning_"
+    "insert_task-rest_space-T1w_desc-preproc_bold_info"
+    ".the.funky_ext.nii.gz"
+)
+
+
 def dict_from_bids_filename(
     fn0: Union[str, pathlib.Path],
     log0: Optional[logging.Logger] = logging.getLogger("dummy"),
@@ -26,54 +42,69 @@ def dict_from_bids_filename(
 
     >>> from nvm.aux_bids import dict_from_bids_filename
     >>>
-    >>> fn0 = "../../data/" \\
-    >>>     "data-001/sub-sykamw18_ses-evening_" \\
-    >>>     "run-r0_date-20220725T202601." \\
-    >>>     "uuid-670f238a-1c15-4f7c-be1a-ea057756ac04.csv"  # WTF
+    >>> fn0_samp = (
+    >>>     "../../data/"
+    >>>     "data-001/sub-sykamw18_ses-evening_"
+    >>>     "run-r0_date-20220725T202601."
+    >>>     "uuid-670f238a-1c15-4f7c-be1a-ea057756ac04.csv"
+    >>> )  # WTF
     >>>
-    >>> fn0 = "../../data/" \\
-    >>>     "data-001/sub-s001__ses-morning_" \\
-    >>>     "insert_task-rest_space-T1w_desc-preproc_bold_info" \\
+    >>> fn0_samp = (
+    >>>     "../../data/"
+    >>>     "data-001/sub-s001__ses-morning_"
+    >>>     "insert_task-rest_space-T1w_desc-preproc_bold_info"
     >>>     ".the.funky_ext.nii.gz"
+    >>> )
     >>>
-    >>> dict0 = dict_from_bids_filename(fn0)
+    >>> dict0 = dict_from_bids_filename(fn0_samp)
     >>> dict0
+    {'props': {'sub': 's001',
+      'ses': 'morning',
+      'task': 'rest',
+      'space': 'T1w',
+      'desc': 'preproc'},
+     'suff': ['insert', 'bold', 'info'],
+     'ext': '.the.funky_ext.nii.gz'}
 
 
-    >>> # With some nicer formatting
+    >>> # Same example with added nice formatting
     >>> from nvm.aux_bids import dict_from_bids_filename
     >>> from nvm import jsonable
     >>> import srsly
     >>> import textwrap
     >>>
-    >>> fn0 = "../../data/" \\
-    >>>     "data-001/sub-sykamw18_ses-evening_" \\
-    >>>     "run-r0_date-20220725T202601." \\
-    >>>     "uuid-670f238a-1c15-4f7c-be1a-ea057756ac04.csv"  # WTF
+    >>> fn0_samp = (
+    >>>     "../../data/"
+    >>>     "data-001/sub-sykamw18_ses-evening_"
+    >>>     "run-r0_date-20220725T202601."
+    >>>     "uuid-670f238a-1c15-4f7c-be1a-ea057756ac04.csv"
+    >>> )  # WTF
     >>>
-    >>> fn0 = "../../data/" \\
-    >>>     "data-001/sub-s001__ses-morning_" \\
-    >>>     "insert_task-rest_space-T1w_desc-preproc_bold_info" \\
+    >>> fn0_samp = (
+    >>>     "../../data/"
+    >>>     "data-001/sub-s001__ses-morning_"
+    >>>     "insert_task-rest_space-T1w_desc-preproc_bold_info"
     >>>     ".the.funky_ext.nii.gz"
+    >>> )
     >>>
-    >>> dict0 = dict_from_bids_filename(fn0)
+    >>> dict0 = dict_from_bids_filename(fn0_samp)
     >>>
     >>> print(
     >>>     "got:\\n" \\
     >>>     f"{textwrap.indent(srsly.yaml_dumps(jsonable(dict0)), 5*' ')}"
     >>> )
-    # got:
-    #      props:
-    #        sub: s001
-    #        ses: morning
-    #        task: rest
-    #        space: T1w
-    #        desc: preproc
-    #      suff:
-    #        - insert
-    #        - bold
-    #        - info
-    #      ext: .the.funky_ext.nii.gz
+    got:
+         props:
+           sub: s001
+           ses: morning
+           task: rest
+           space: T1w
+           desc: preproc
+         suff:
+           - insert
+           - bold
+           - info
+         ext: .the.funky_ext.nii.gz
 
     """
     fn0 = pathlib.Path(fn0)
