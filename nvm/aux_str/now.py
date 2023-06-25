@@ -25,6 +25,12 @@ def now(
     str
         Date and time as string (e.g., "20230201T070809").
 
+    Examples
+    --------
+    >>> from nvm import now
+    >>> now()
+    "20220607T024010"
+
     """
 
     if isinstance(tz0, pytz.BaseTzInfo):

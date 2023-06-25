@@ -20,6 +20,14 @@ nvm.aux\_str.clean\_str\_mappings module
    :undoc-members:
    :show-inheritance:
 
+nvm.aux\_str.now module
+-----------------------
+
+.. automodule:: nvm.aux_str.now
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 nvm.aux\_str.regex module
 -------------------------
 
