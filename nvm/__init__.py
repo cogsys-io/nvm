@@ -23,6 +23,7 @@ from .aux_sys import pushdir as pdir
 
 from . import aux_str
 from .aux_str import clean_str
+from .aux_str.now import now
 
 from . import aux_pandas
 from .aux_pandas import disp_df
